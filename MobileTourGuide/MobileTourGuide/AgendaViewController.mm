@@ -9,10 +9,14 @@
 #import "AgendaViewController.h"
 #import "LocationDetailController.h"
 #import "Location.h"
+#import "ZXingWidgetController.h"
+#import "QRCodeReader.h"
+#import "ScanController.h"
 
 
 @implementation AgendaViewController
-@synthesize locations, indexSel, myLoc, editedSelection, haveVisited;
+@synthesize scan, scanDetail;
+@synthesize locations, indexSel, myLoc, editedSelection, haveVisited, allLoc;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,6 +30,7 @@
     self = [super init];
     if (self) {
         haveVisited = NO;
+        scanDetail = nil;
     }
     return self;
 }
@@ -48,8 +53,8 @@
 - (void)viewDidUnload
 {
     
+    [self setScan:nil];
     [super viewDidUnload];
-    self.locations = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -62,8 +67,20 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.tableView reloadData];
     [super viewDidAppear:animated];
+    if (scanDetail == nil) {
+        NSLog(@"It's nil");
+    }
+    else {
+        NSLog(@"Not nil, all good!");
+    }
+//    
+//    if (scanDetail != nil) {
+//        LocationDetailController *temp = scanDetail;
+//        scanDetail = nil;
+//        
+//    }
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -82,25 +99,13 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-
-#pragma mark - Table view data source
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    // Return the number of sections.
-//    return 1;
-//}
-
-//Number of rows it should expect should be based on the section
-
+#pragma mark -
+#pragma mark Table Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.locations count];
 }
-
-#pragma mark -
-#pragma mark Table Data Source Methods
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -141,14 +146,6 @@
     return YES;
 }
 
-- (IBAction)redAlert:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
-                                                    message:[NSString stringWithFormat:@"This is currently a simulated prototype. This button would activate Check In functionality!"]
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-}
-
 #pragma mark -
 #pragma mark Table View Delegate Methods
 
@@ -170,8 +167,59 @@
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
+- (void)zxingControllerDidCancel:(ZXingWidgetController*)controller {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)scanPressed:(id)sender {
+	
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+    widController.readers = readers;
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    widController.soundToPlay =
+    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+    [self presentModalViewController:widController animated:YES];
+}
+
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
     
+    NSString *scanned = result;
+    NSString *admissions = @"VANDY_LOCATION_ADMISSIONS";
+    
+    LocationDetailController *destination = [[LocationDetailController alloc] init];
+    scanDetail = [[LocationDetailController alloc] init];
+    if ([scanned isEqualToString:admissions]) {
+        
+        NSDictionary *selection;
+        
+        Location *loc = [allLoc valueForKey:@"Admissions"];
+        
+        selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                     loc, @"location",
+                     nil];
+        
+        [destination setValue:selection forKey:@"selection"];
+        
+        destination.title = loc.name;
+        scanDetail = destination;
+        if (scanDetail == nil) {
+            NSLog(@"It's nil");
+        }
+        else {
+            NSLog(@"Not nil, all good!");
+        }
+        
+        [self.navigationController pushViewController:scanDetail animated:NO];
+        
+    }
+
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
     LocationDetailController *destination = segue.destinationViewController;
     
     if ([destination respondsToSelector:@selector(setSelection:)]) {
@@ -190,9 +238,7 @@
         [destination setValue:selection forKey:@"selection"];
         
         destination.title = loc.name;
-    
     }
-    
 }
 
 

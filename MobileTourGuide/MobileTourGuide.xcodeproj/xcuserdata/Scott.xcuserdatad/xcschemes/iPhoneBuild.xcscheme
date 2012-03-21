@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D2C5A0A914ED8D6300F365C1"
-               BuildableName = "Guide.app"
+               BuildableName = "guide.app"
                BlueprintName = "MobileTourGuide"
                ReferencedContainer = "container:MobileTourGuide.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2C5A0A914ED8D6300F365C1"
-            BuildableName = "Guide.app"
+            BuildableName = "guide.app"
             BlueprintName = "MobileTourGuide"
             ReferencedContainer = "container:MobileTourGuide.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2C5A0A914ED8D6300F365C1"
-            BuildableName = "Guide.app"
+            BuildableName = "guide.app"
             BlueprintName = "MobileTourGuide"
             ReferencedContainer = "container:MobileTourGuide.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D2C5A0A914ED8D6300F365C1"
-            BuildableName = "Guide.app"
+            BuildableName = "guide.app"
             BlueprintName = "MobileTourGuide"
             ReferencedContainer = "container:MobileTourGuide.xcodeproj">
          </BuildableReference>

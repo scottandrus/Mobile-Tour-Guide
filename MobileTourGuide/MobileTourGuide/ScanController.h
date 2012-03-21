@@ -7,6 +7,7 @@
 //
 
 #import "ZXingWidgetController.h"
+#import <UIKit/UIKit.h>
 
 @interface ScanController : ZXingWidgetController
 

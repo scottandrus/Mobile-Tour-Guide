@@ -11,6 +11,9 @@
 #import "PlacesViewController.h"
 #import "TourViewController.h"
 #import "Location.h"
+#import "ZXingWidgetController.h"
+#import "QRCodeReader.h"
+
 
 @implementation GuideAppDelegate 
 
@@ -122,6 +125,9 @@
         }
     }
     
+    NSDictionary *locDict;
+    locDict = [NSDictionary dictionaryWithObjectsAndKeys:location1, @"Admissions", nil];
+    
     PlacesViewController *tourOne = [[PlacesViewController alloc] init];
     [tours addObject:tourOne];
     tourOne.name = @"Main Line";
@@ -143,6 +149,7 @@
     AgendaViewController *agendaViewController = 
     [[navigationController viewControllers] objectAtIndex:0];
 	agendaViewController.locations = agenda;
+    agendaViewController.allLoc = locDict;
     
     UINavigationController *tourNavController =
     [[tabBarController viewControllers] objectAtIndex:1];

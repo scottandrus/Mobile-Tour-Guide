@@ -57,11 +57,12 @@
                         <barButtonItem key="rightBarButtonItem" tag="4" image="74-location-white.png" style="plain" id="DrZ-Jd-MMt">
                             <color key="tintColor" red="0.36411876616521827" green="0.57966455253250349" blue="0.98421556122448983" alpha="0.57000000000000006" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="redAlert:" destination="OxX-4D-fo9" id="MxW-2l-sWH"/>
+                                <action selector="scanPressed:" destination="OxX-4D-fo9" id="Uaa-jg-rAC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scan" destination="DrZ-Jd-MMt" id="Hf5-Pf-gzi"/>
                         <outlet property="view" destination="FSf-8l-j6a" id="3nB-cH-wPn"/>
                     </connections>
                 </viewController>
@@ -87,9 +88,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="2kD-gu-Fgn"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EXx-Qs-Ipg">
                                 <rect key="frame" x="167" y="20" width="138" height="40"/>
@@ -103,7 +101,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="redAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="HZa-uJ-9uf"/>
+                                    <action selector="redAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="cZi-Ek-sJZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours: " lineBreakMode="tailTruncation" minimumFontSize="12" id="CXP-61-mox">
@@ -125,7 +123,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="videoPressed:" destination="hB1-wm-YtE" eventType="touchUpInside" id="MaD-fe-gsg"/>
+                                    <action selector="videoPressed:" destination="hB1-wm-YtE" eventType="touchUpInside" id="Qxh-lP-rVV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1xR-5o-iVh">
@@ -140,7 +138,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="uDa-FF-aka"/>
+                                    <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="jzd-gx-4Ux"/>
                                 </connections>
                             </button>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" indicatorStyle="black" editable="NO" id="apk-rq-cHw">
@@ -167,7 +165,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="7Mz-Jn-RDn"/>
+                                    <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="hWp-bJ-vqU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="peI-vF-Tyx">
@@ -192,9 +190,6 @@
                     <navigationItem key="navigationItem" id="UbD-vr-NvW">
                         <barButtonItem key="rightBarButtonItem" tag="4" image="74-location-white.png" style="plain" id="qpU-dx-a58">
                             <color key="tintColor" red="0.3641187662" green="0.57966455250000004" blue="0.98421556119999998" alpha="0.56999999999999995" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="redAlert:" destination="OxX-4D-fo9" id="QD9-K0-OBE"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -381,12 +376,12 @@
         <scene sceneID="5Nx-5z-C21">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkL-IA-X3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="yG2-OT-4ut" sceneMemberID="viewController">
+                <viewController id="yG2-OT-4ut" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cyw-FB-OrA">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="dLd-7V-2eP">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="dLd-7V-2eP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
@@ -506,9 +501,6 @@
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <connections>
-                                        <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="wmz-iq-fUS"/>
-                                    </connections>
                                 </button>
                                 <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.89999997615814209" contentMode="scaleToFill" indicatorStyle="black" editable="NO" id="u1k-Jo-OVi">
                                     <rect key="frame" x="15" y="123" width="291" height="113"/>
@@ -586,6 +578,9 @@
     <classes>
         <class className="AgendaViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AgendaViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scan" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="ImageViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
@@ -603,6 +598,9 @@
                 <relationship kind="outlet" name="photo" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+        </class>
         <class className="PlacesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacesViewController.h"/>
             <relationships>
@@ -619,6 +617,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0X6-rz-sXc"/>
+        <segue reference="6vU-tz-7BO"/>
     </inferredMetricsTieBreakers>
 </document>

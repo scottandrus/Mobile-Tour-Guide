@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Location.h"
+#import "LocationDetailController.h"
+#import "ZXingWidgetController.h"
 
-@interface AgendaViewController : UITableViewController
+@interface AgendaViewController : UITableViewController <ZXingDelegate>
 
 @property (strong, nonatomic) NSMutableArray *locations;
+
+@property (strong, nonatomic) NSDictionary *allLoc;
 
 @property (strong, nonatomic) NSDictionary *editedSelection;
 
@@ -20,6 +24,10 @@
 @property BOOL haveVisited;
 
 @property (strong, nonatomic) NSIndexPath *indexSel;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *scan;
+
+@property (strong, nonatomic) LocationDetailController *scanDetail;
 
 @end
 
