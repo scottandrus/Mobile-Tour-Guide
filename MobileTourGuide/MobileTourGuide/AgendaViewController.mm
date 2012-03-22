@@ -15,7 +15,7 @@
 
 
 @implementation AgendaViewController
-@synthesize scan, scanDetail;
+@synthesize scan;
 @synthesize locations, indexSel, myLoc, editedSelection, haveVisited, allLoc;
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +30,6 @@
     self = [super init];
     if (self) {
         haveVisited = NO;
-        scanDetail = nil;
     }
     return self;
 }
@@ -68,18 +67,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (scanDetail == nil) {
-        NSLog(@"It's nil");
-    }
-    else {
-        NSLog(@"Not nil, all good!");
-    }
-//    
-//    if (scanDetail != nil) {
-//        LocationDetailController *temp = scanDetail;
-//        scanDetail = nil;
-//        
-//    }
     [self.tableView reloadData];
 }
 
@@ -171,73 +158,77 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)scanPressed:(id)sender {
-	
-    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
-    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
-    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
-    widController.readers = readers;
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    widController.soundToPlay =
-    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
-    [self presentModalViewController:widController animated:YES];
-}
+//- (IBAction)scanPressed:(id)sender {
+//	
+//    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+//    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+//    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+//    widController.readers = readers;
+//    NSBundle *mainBundle = [NSBundle mainBundle];
+//    widController.soundToPlay =
+//    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+//    [self presentModalViewController:widController animated:YES];
+//}
 
 - (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
     
     NSString *scanned = result;
-    NSString *admissions = @"VANDY_LOCATION_ADMISSIONS";
+    Location *loc;
+    if ([allLoc valueForKey:scanned] != nil) {
+        loc = [allLoc valueForKey:scanned];
     
-    LocationDetailController *destination = [[LocationDetailController alloc] init];
-    scanDetail = [[LocationDetailController alloc] init];
-    if ([scanned isEqualToString:admissions]) {
-        
-        NSDictionary *selection;
-        
-        Location *loc = [allLoc valueForKey:@"Admissions"];
-        
-        selection = [NSDictionary dictionaryWithObjectsAndKeys:
-                     loc, @"location",
-                     nil];
-        
-        [destination setValue:selection forKey:@"selection"];
-        
-        destination.title = loc.name;
-        scanDetail = destination;
-        if (scanDetail == nil) {
-            NSLog(@"It's nil");
-        }
-        else {
-            NSLog(@"Not nil, all good!");
-        }
-        
-        [self.navigationController pushViewController:scanDetail animated:NO];
         
     }
-
     [self dismissModalViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"scanLoc" sender:loc];
     
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
-    LocationDetailController *destination = segue.destinationViewController;
     
-    if ([destination respondsToSelector:@selector(setSelection:)]) {
-        // prepare selection info
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        
-        Location *loc = [self.locations objectAtIndex:indexPath.row];
-        
+    if (sender == scan) {
+        ZXingWidgetController *destination = segue.destinationViewController;
+        destination = [destination initWithDelegate:self showCancel:YES OneDMode:NO];
+        QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+        NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+        destination.readers = readers;
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        destination.soundToPlay =
+        [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+    }
+    else if ([segue.identifier isEqual:@"scanLoc"]) {
+        LocationDetailController *destination = segue.destinationViewController;
+        Location *loc = sender;
         NSDictionary *selection;
         
         selection = [NSDictionary dictionaryWithObjectsAndKeys:
-                     indexPath, @"indexPath",
                      loc, @"location",
                      nil];
-       
+        
         [destination setValue:selection forKey:@"selection"];
         
         destination.title = loc.name;
+        NSLog(destination.title);
+    }
+    else {
+        LocationDetailController *destination = segue.destinationViewController;
+        if ([destination respondsToSelector:@selector(setSelection:)]) {
+            // prepare selection info
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            
+            Location *loc = [self.locations objectAtIndex:indexPath.row];
+            
+            NSDictionary *selection;
+            
+            selection = [NSDictionary dictionaryWithObjectsAndKeys:
+                         indexPath, @"indexPath",
+                         loc, @"location",
+                         nil];
+           
+            [destination setValue:selection forKey:@"selection"];
+            
+            destination.title = loc.name;
+    }
     }
 }
 

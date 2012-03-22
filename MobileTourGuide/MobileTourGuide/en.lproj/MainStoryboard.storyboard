@@ -57,13 +57,14 @@
                         <barButtonItem key="rightBarButtonItem" tag="4" image="74-location-white.png" style="plain" id="DrZ-Jd-MMt">
                             <color key="tintColor" red="0.36411876616521827" green="0.57966455253250349" blue="0.98421556122448983" alpha="0.57000000000000006" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="scanPressed:" destination="OxX-4D-fo9" id="Uaa-jg-rAC"/>
+                                <segue destination="x8P-9Y-0o7" kind="modal" modalTransitionStyle="coverVertical" id="tZu-h0-jr5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="scan" destination="DrZ-Jd-MMt" id="Hf5-Pf-gzi"/>
                         <outlet property="view" destination="FSf-8l-j6a" id="3nB-cH-wPn"/>
+                        <segue destination="hB1-wm-YtE" kind="push" identifier="scanLoc" id="Ul8-Iy-ktq"/>
                     </connections>
                 </viewController>
             </objects>
@@ -72,7 +73,7 @@
         <scene sceneID="4GC-yn-Qt2">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3R7-Zr-T9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController modalTransitionStyle="flipHorizontal" id="hB1-wm-YtE" customClass="LocationDetailController" sceneMemberID="viewController">
+                <viewController title="LocationDetailController" modalTransitionStyle="flipHorizontal" id="hB1-wm-YtE" customClass="LocationDetailController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GFM-as-64h">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,7 +102,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="redAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="cZi-Ek-sJZ"/>
+                                    <action selector="redAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="HGV-HU-IuM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hours: " lineBreakMode="tailTruncation" minimumFontSize="12" id="CXP-61-mox">
@@ -123,7 +124,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="videoPressed:" destination="hB1-wm-YtE" eventType="touchUpInside" id="Qxh-lP-rVV"/>
+                                    <action selector="videoPressed:" destination="hB1-wm-YtE" eventType="touchUpInside" id="rmE-25-FvV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1xR-5o-iVh">
@@ -138,7 +139,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="jzd-gx-4Ux"/>
+                                    <action selector="audioAlert:" destination="hB1-wm-YtE" eventType="touchUpInside" id="i0c-YB-YZi"/>
                                 </connections>
                             </button>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" indicatorStyle="black" editable="NO" id="apk-rq-cHw">
@@ -165,7 +166,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="hWp-bJ-vqU"/>
+                                    <action selector="addAgenda:" destination="hB1-wm-YtE" eventType="touchUpInside" id="Wru-CB-hmu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="peI-vF-Tyx">
@@ -561,6 +562,19 @@
             </objects>
             <point key="canvasLocation" x="1772" y="-359"/>
         </scene>
+        <scene sceneID="jj5-VU-QCs">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAB-cn-ngq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="x8P-9Y-0o7" customClass="ZXingWidgetController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7As-wg-QAS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2338" y="-359"/>
+        </scene>
     </scenes>
     <resources>
         <image name="02-redo.png" width="30" height="26"/>
@@ -617,6 +631,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6vU-tz-7BO"/>
+        <segue reference="Ul8-Iy-ktq"/>
     </inferredMetricsTieBreakers>
 </document>

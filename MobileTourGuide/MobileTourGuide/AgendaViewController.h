@@ -27,7 +27,5 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *scan;
 
-@property (strong, nonatomic) LocationDetailController *scanDetail;
-
 @end
 

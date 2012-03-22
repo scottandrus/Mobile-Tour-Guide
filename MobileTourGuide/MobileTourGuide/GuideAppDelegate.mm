@@ -126,7 +126,13 @@
     }
     
     NSDictionary *locDict;
-    locDict = [NSDictionary dictionaryWithObjectsAndKeys:location1, @"Admissions", nil];
+    locDict = [NSDictionary dictionaryWithObjectsAndKeys:location1, @"VANDY_LOCATION_ADMISSIONS",
+                                                         location2, @"VANDY_LOCATION_KISSAM",
+                                                         location3, @"VANDY_LOCATION_RAND",
+                                                         location4, @"VANDY_LOCATION_FGH",
+                                                         location5, @"VANDY_LOCATION_REC",
+                                                         location6, @"VANDY_LOCATION_COMMONS",
+                                                         nil];
     
     PlacesViewController *tourOne = [[PlacesViewController alloc] init];
     [tours addObject:tourOne];
