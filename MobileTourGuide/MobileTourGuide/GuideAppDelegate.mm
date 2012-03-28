@@ -13,6 +13,7 @@
 #import "Location.h"
 #import "ZXingWidgetController.h"
 #import "QRCodeReader.h"
+#import "MapViewController.h"
 
 
 @implementation GuideAppDelegate 
@@ -139,12 +140,16 @@
     tourOne.name = @"Main Line";
     tourOne.locations = locations;
     tourOne.agenda = agenda;
+    tourOne.imgURL = @"http://twotasks.files.wordpress.com/2011/10/vanderbilt_commodores.gif";
+    tourOne.info = @"This is the main tour line for all visitors! This route includes the most popular and important destinations on campus!";
     
     PlacesViewController *tourTwo = [[PlacesViewController alloc] init];
     [tours addObject:tourTwo];
     tourTwo.name = @"Around the World";
     tourTwo.locations = locations;
     tourTwo.agenda = agenda;
+    tourTwo.imgURL = @"http://upload.wikimedia.org/wikipedia/commons/4/4d/Vanderbilt_Commodores.png";
+    tourTwo.info = @"This tour takes you around the Vanderbilt world! This route includes all of the destinations currently available!";
     
     UITabBarController *tabBarController = 
     (UITabBarController *)self.window.rootViewController;
@@ -163,6 +168,7 @@
     TourViewController *tourViewController =
     [[tourNavController viewControllers] objectAtIndex:0];
     tourViewController.tourList = tours;
+    tourViewController.allLoc = locDict;
     
     UINavigationController *placesNavigationController = 
     [[tabBarController viewControllers] objectAtIndex:2];
@@ -171,7 +177,13 @@
     [[placesNavigationController viewControllers] objectAtIndex:0];
     placesViewController.locations = categories;
     placesViewController.agenda = agenda;
+    placesViewController.allLoc = locDict;
     placesViewController.isSectioned = YES;
+    
+    UINavigationController *mapNavController = [[tabBarController viewControllers] objectAtIndex:3];
+    
+    MapViewController *mapViewController = [[mapNavController viewControllers] objectAtIndex:0];
+    mapViewController.allLoc = locDict;
     
     return YES;
 }

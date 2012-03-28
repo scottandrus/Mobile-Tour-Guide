@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Location.h"
+#import "ZXingWidgetController.h"
 
-@interface TourViewController : UITableViewController
+@interface TourViewController : UITableViewController<ZXingDelegate>
 
 @property (strong, nonatomic) NSMutableArray *tourList;
+@property (strong, nonatomic) NSDictionary *allLoc;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *scan;
 
 @end

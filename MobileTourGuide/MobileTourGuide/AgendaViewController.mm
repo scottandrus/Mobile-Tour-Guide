@@ -36,15 +36,6 @@
 
 - (void)viewDidLoad
 {
-    if (haveVisited) {
-        NSIndexPath *index = [editedSelection valueForKey:@"indexPath"];
-        BOOL isOnAgenda = [[editedSelection valueForKey:@"location"] onAgenda];
-        Location *oldLoc = [self.locations objectAtIndex:index.row];
-        oldLoc.onAgenda = isOnAgenda;
-    }
-    
-    haveVisited = YES;
-
     [self.tableView reloadData];
     [super viewDidLoad];
 }
@@ -60,12 +51,18 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if (haveVisited) {
+        Location *oldLoc = [editedSelection valueForKey:@"location"];
+    }
+    
+    haveVisited = YES;
     [self.tableView reloadData];
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"%d", locations.count);
     [super viewDidAppear:animated];
     [self.tableView reloadData];
 }
@@ -158,29 +155,24 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-//- (IBAction)scanPressed:(id)sender {
-//	
-//    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
-//    QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
-//    NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
-//    widController.readers = readers;
-//    NSBundle *mainBundle = [NSBundle mainBundle];
-//    widController.soundToPlay =
-//    [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
-//    [self presentModalViewController:widController animated:YES];
-//}
-
 - (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
     
     NSString *scanned = result;
     Location *loc;
     if ([allLoc valueForKey:scanned] != nil) {
         loc = [allLoc valueForKey:scanned];
-    
-        
+
+        [self dismissModalViewControllerAnimated:YES];
+        [self performSegueWithIdentifier:@"scanLoc" sender:loc];
     }
-    [self dismissModalViewControllerAnimated:YES];
-    [self performSegueWithIdentifier:@"scanLoc" sender:loc];
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
+                                                        message:[NSString stringWithFormat:@"This is not a valid Vanderbilt QR code. Please try again."]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [self dismissModalViewControllerAnimated:YES];
+    }
     
 }
 
@@ -203,12 +195,13 @@
         
         selection = [NSDictionary dictionaryWithObjectsAndKeys:
                      loc, @"location",
+                     locations, @"agenda",
                      nil];
         
         [destination setValue:selection forKey:@"selection"];
+        [destination setValue:allLoc forKey:@"allLoc"];
         
         destination.title = loc.name;
-        NSLog(destination.title);
     }
     else {
         LocationDetailController *destination = segue.destinationViewController;
@@ -223,9 +216,13 @@
             selection = [NSDictionary dictionaryWithObjectsAndKeys:
                          indexPath, @"indexPath",
                          loc, @"location",
+                         locations, @"agenda",
                          nil];
            
             [destination setValue:selection forKey:@"selection"];
+            [destination setValue:locations forKey:@"agenda"];
+            
+            [destination setValue:allLoc forKey:@"allLoc"];
             
             destination.title = loc.name;
     }

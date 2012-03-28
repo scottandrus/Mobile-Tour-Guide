@@ -13,7 +13,7 @@
 		D223F72414F95AFB00DE2B6B /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D223F72314F95AFB00DE2B6B /* ImageViewController.m */; };
 		D223F72B14F9815F00DE2B6B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D223F72A14F9815F00DE2B6B /* MapKit.framework */; };
 		D26650E91518FCE5005C4B8B /* beep-beep.aiff in Resources */ = {isa = PBXBuildFile; fileRef = D26650E81518FCE5005C4B8B /* beep-beep.aiff */; };
-		D26650EE15194AB1005C4B8B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26650ED15194AB1005C4B8B /* MapViewController.m */; };
+		D26650EE15194AB1005C4B8B /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D26650ED15194AB1005C4B8B /* MapViewController.mm */; };
 		D270110814F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png in Resources */ = {isa = PBXBuildFile; fileRef = D270110714F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png */; };
 		D27011D414F62A2F000B49C3 /* 00-Read me first - license.txt in Resources */ = {isa = PBXBuildFile; fileRef = D270110B14F62A2E000B49C3 /* 00-Read me first - license.txt */; };
 		D27011D514F62A2F000B49C3 /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = D270110C14F62A2E000B49C3 /* 01-refresh.png */; };
@@ -225,7 +225,7 @@
 		D2B9C9F114F0A3EE005AB720 /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9F014F0A3EE005AB720 /* world.png */; };
 		D2B9C9F314F0A425005AB720 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9F214F0A425005AB720 /* star.png */; };
 		D2B9C9F514F0A444005AB720 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9F414F0A444005AB720 /* star@2x.png */; };
-		D2B9C9F714F0A49E005AB720 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B9C9F614F0A49E005AB720 /* PlacesViewController.m */; };
+		D2B9C9F714F0A49E005AB720 /* PlacesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2B9C9F614F0A49E005AB720 /* PlacesViewController.mm */; };
 		D2B9C9FA14F0A635005AB720 /* house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9F914F0A635005AB720 /* house@2x.png */; };
 		D2B9C9FC14F0A665005AB720 /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = D2B9C9FB14F0A665005AB720 /* house.png */; };
 		D2C5A0AF14ED8D6300F365C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C5A0AE14ED8D6300F365C1 /* UIKit.framework */; };
@@ -235,7 +235,7 @@
 		D2C5A0BB14ED8D6300F365C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A0BA14ED8D6300F365C1 /* main.m */; };
 		D2C5A0BF14ED8D6300F365C1 /* GuideAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A0BE14ED8D6300F365C1 /* GuideAppDelegate.mm */; };
 		D2C5A0C214ED8D6300F365C1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A0C014ED8D6300F365C1 /* MainStoryboard.storyboard */; };
-		D2C5A0C514ED8D6300F365C1 /* TourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A0C414ED8D6300F365C1 /* TourViewController.m */; };
+		D2C5A0C514ED8D6300F365C1 /* TourViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A0C414ED8D6300F365C1 /* TourViewController.mm */; };
 		D2C5A0C714ED8D6300F365C1 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A0C614ED8D6300F365C1 /* first.png */; };
 		D2C5A0C914ED8D6300F365C1 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2C5A0C814ED8D6300F365C1 /* first@2x.png */; };
 		D2C5A0CC14ED8D6300F365C1 /* AgendaViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2C5A0CB14ED8D6300F365C1 /* AgendaViewController.mm */; };
@@ -250,7 +250,7 @@
 		D2D9FB8415180ED50091A0B4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D9FB7D15180ED50091A0B4 /* CoreVideo.framework */; };
 		D2D9FB8515180ED50091A0B4 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D9FB7E15180ED50091A0B4 /* libiconv.dylib */; };
 		D2E1BCB214F5FD530071C759 /* linen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2E1BCB114F5FD530071C759 /* linen.jpg */; };
-		D2F4A68A14F3532D00EDD0B6 /* LocationDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F4A68914F3532D00EDD0B6 /* LocationDetailController.m */; };
+		D2F4A68A14F3532D00EDD0B6 /* LocationDetailController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2F4A68914F3532D00EDD0B6 /* LocationDetailController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,7 +286,7 @@
 		D223F72A14F9815F00DE2B6B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D26650E81518FCE5005C4B8B /* beep-beep.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "beep-beep.aiff"; sourceTree = "<group>"; };
 		D26650EC15194AB1005C4B8B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		D26650ED15194AB1005C4B8B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D26650ED15194AB1005C4B8B /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
 		D270110714F6293C000B49C3 /* designkode-iphone-toolbar-button-icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "designkode-iphone-toolbar-button-icons.png"; sourceTree = "<group>"; };
 		D270110B14F62A2E000B49C3 /* 00-Read me first - license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "00-Read me first - license.txt"; sourceTree = "<group>"; };
 		D270110C14F62A2E000B49C3 /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-refresh.png"; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 		D2B9C9F014F0A3EE005AB720 /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
 		D2B9C9F214F0A425005AB720 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		D2B9C9F414F0A444005AB720 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
-		D2B9C9F614F0A49E005AB720 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		D2B9C9F614F0A49E005AB720 /* PlacesViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlacesViewController.mm; sourceTree = "<group>"; };
 		D2B9C9F814F0A4AF005AB720 /* PlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
 		D2B9C9F914F0A635005AB720 /* house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house@2x.png"; sourceTree = "<group>"; };
 		D2B9C9FB14F0A665005AB720 /* house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = house.png; sourceTree = "<group>"; };
@@ -516,7 +516,7 @@
 		D2C5A0BE14ED8D6300F365C1 /* GuideAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GuideAppDelegate.mm; sourceTree = "<group>"; };
 		D2C5A0C114ED8D6300F365C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		D2C5A0C314ED8D6300F365C1 /* TourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TourViewController.h; sourceTree = "<group>"; };
-		D2C5A0C414ED8D6300F365C1 /* TourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TourViewController.m; sourceTree = "<group>"; };
+		D2C5A0C414ED8D6300F365C1 /* TourViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TourViewController.mm; sourceTree = "<group>"; };
 		D2C5A0C614ED8D6300F365C1 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		D2C5A0C814ED8D6300F365C1 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		D2C5A0CA14ED8D6300F365C1 /* AgendaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AgendaViewController.h; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 		D2D9FB7E15180ED50091A0B4 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		D2E1BCB114F5FD530071C759 /* linen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = linen.jpg; path = ../../../../../../../../../Downloads/linen.jpg; sourceTree = "<group>"; };
 		D2F4A68814F3532D00EDD0B6 /* LocationDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationDetailController.h; sourceTree = "<group>"; };
-		D2F4A68914F3532D00EDD0B6 /* LocationDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationDetailController.m; sourceTree = "<group>"; };
+		D2F4A68914F3532D00EDD0B6 /* LocationDetailController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LocationDetailController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -782,16 +782,16 @@
 			children = (
 				D223F72214F95AFB00DE2B6B /* ImageViewController.h */,
 				D223F72314F95AFB00DE2B6B /* ImageViewController.m */,
-				D2F4A68914F3532D00EDD0B6 /* LocationDetailController.m */,
+				D2F4A68914F3532D00EDD0B6 /* LocationDetailController.mm */,
 				D2F4A68814F3532D00EDD0B6 /* LocationDetailController.h */,
 				D2C5A0C314ED8D6300F365C1 /* TourViewController.h */,
-				D2C5A0C414ED8D6300F365C1 /* TourViewController.m */,
+				D2C5A0C414ED8D6300F365C1 /* TourViewController.mm */,
 				D2B9C9F814F0A4AF005AB720 /* PlacesViewController.h */,
-				D2B9C9F614F0A49E005AB720 /* PlacesViewController.m */,
+				D2B9C9F614F0A49E005AB720 /* PlacesViewController.mm */,
 				D2C5A0CA14ED8D6300F365C1 /* AgendaViewController.h */,
 				D2C5A0CB14ED8D6300F365C1 /* AgendaViewController.mm */,
 				D26650EC15194AB1005C4B8B /* MapViewController.h */,
-				D26650ED15194AB1005C4B8B /* MapViewController.m */,
+				D26650ED15194AB1005C4B8B /* MapViewController.mm */,
 				D29E9F081518175A00920F12 /* ScanController.h */,
 				D29E9F091518175A00920F12 /* ScanController.mm */,
 			);
@@ -1211,14 +1211,14 @@
 			files = (
 				D2C5A0BB14ED8D6300F365C1 /* main.m in Sources */,
 				D2C5A0BF14ED8D6300F365C1 /* GuideAppDelegate.mm in Sources */,
-				D2C5A0C514ED8D6300F365C1 /* TourViewController.m in Sources */,
+				D2C5A0C514ED8D6300F365C1 /* TourViewController.mm in Sources */,
 				D2C5A0CC14ED8D6300F365C1 /* AgendaViewController.mm in Sources */,
-				D2B9C9F714F0A49E005AB720 /* PlacesViewController.m in Sources */,
-				D2F4A68A14F3532D00EDD0B6 /* LocationDetailController.m in Sources */,
+				D2B9C9F714F0A49E005AB720 /* PlacesViewController.mm in Sources */,
+				D2F4A68A14F3532D00EDD0B6 /* LocationDetailController.mm in Sources */,
 				D2B08B7B14F41C4400E04BE8 /* Location.m in Sources */,
 				D223F72414F95AFB00DE2B6B /* ImageViewController.m in Sources */,
 				D29E9F0A1518175B00920F12 /* ScanController.mm in Sources */,
-				D26650EE15194AB1005C4B8B /* MapViewController.m in Sources */,
+				D26650EE15194AB1005C4B8B /* MapViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1252,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D2934695151B8B590003926E /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Andrus (9233GZBPM2)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/Users/Scott/Downloads/zxing-2.0/cpp/core/src",
+					"/Users/Scott/Downloads/zxing-2.0/iphone/ZXingWidget/Classes/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "3DDB905E-DE58-41DC-B016-D9A0AF89F782";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		D2934696151B8B590003926E /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobileTourGuide/MobileTourGuide-Prefix.pch";
+				INFOPLIST_FILE = "MobileTourGuide/MobileTourGuide-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = guide;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 		D2C5A0D114ED8D6300F365C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1345,6 +1385,7 @@
 			buildConfigurations = (
 				D2C5A0D114ED8D6300F365C1 /* Debug */,
 				D2C5A0D214ED8D6300F365C1 /* Release */,
+				D2934695151B8B590003926E /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1354,6 +1395,7 @@
 			buildConfigurations = (
 				D2C5A0D414ED8D6300F365C1 /* Debug */,
 				D2C5A0D514ED8D6300F365C1 /* Release */,
+				D2934696151B8B590003926E /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

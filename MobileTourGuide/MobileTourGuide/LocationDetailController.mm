@@ -9,11 +9,14 @@
 #import "LocationDetailController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ImageViewController.h"
+#import "ScanController.h"
+#import "QRCodeReader.h"
 
 @implementation LocationDetailController
+@synthesize scan;
 @synthesize photo;
 
-@synthesize indexSel, currentLoc, delegate, selection;
+@synthesize indexSel, currentLoc, delegate, selection, allLoc, agenda;
 @synthesize description, hours, addAgenda, alreadyOnAgenda;
 
 - (void)viewDidLoad {
@@ -48,6 +51,7 @@
     self.alreadyOnAgenda = nil;
     //self.myImage = nil;
     [self setPhoto:nil];
+    [self setScan:nil];
     [super viewDidUnload];
 }
 
@@ -60,14 +64,15 @@
 #pragma mark - View lifecycle
 - (IBAction)redAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
-                                                    message:[NSString stringWithFormat:@"This is currently a simulated prototype. This button would activate Check In functionality."]
+                                                    message:[NSString stringWithFormat:@"\"Check In!\" is not supported in the current version of the prototype. Please check back later."]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
+
 - (IBAction)audioAlert:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
-                                                    message:[NSString stringWithFormat:@"This is currently a simulated prototype. This button would start an audio version of the tour script."]
+                                                    message:[NSString stringWithFormat:@"Audio tours are not supported in the current version of the prototype. Please check back later."]
                                                    delegate:nil
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
@@ -78,7 +83,7 @@
 }
 
 - (IBAction)addAgenda:(id)sender {
-    NSMutableArray *agenda = [selection valueForKey:@"agenda"];
+    agenda = [selection valueForKey:@"agenda"];
     alreadyOnAgenda.hidden = NO;
     addAgenda.hidden = YES;
     currentLoc.onAgenda = YES;
@@ -87,20 +92,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.photo.adjustsImageWhenHighlighted = NO;
-    self.photo.layer.cornerRadius = 9;
-    self.photo.clipsToBounds = YES;
-    
-    self.photo.layer.borderColor = [[UIColor grayColor] CGColor];
-    self.photo.layer.borderWidth = .5;
-    
-    [photo setImage:[UIImage imageNamed:@"02-redo.png"] forState:UIControlStateNormal];
-    
-    NSData *imgUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLoc.image]];
-    [photo setImage:[UIImage imageWithData:imgUrl]
-           forState:UIControlStateNormal];
-    [photo setImage:[UIImage imageWithData:imgUrl]
-           forState:UIControlStateHighlighted];
     
     // Check if onAgenda.
     if (currentLoc.onAgenda) {
@@ -118,6 +109,20 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.photo.adjustsImageWhenHighlighted = NO;
+    self.photo.layer.cornerRadius = 9;
+    self.photo.clipsToBounds = YES;
+    
+    self.photo.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.photo.layer.borderWidth = .5;
+    
+    [photo setImage:[UIImage imageNamed:@"02-redo.png"] forState:UIControlStateNormal];
+    
+    NSData *imgUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:currentLoc.image]];
+    [photo setImage:[UIImage imageWithData:imgUrl]
+           forState:UIControlStateNormal];
+    [photo setImage:[UIImage imageWithData:imgUrl]
+           forState:UIControlStateHighlighted];
     [super viewDidAppear:animated];
 }
 
@@ -125,13 +130,21 @@
 {
 	[super viewWillDisappear:animated];
     // prepare selection info
-    NSIndexPath *indexPath = [selection objectForKey:@"indexPath"];
-    NSDictionary *editedSelection = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     indexPath, @"indexPath",
-                                     currentLoc, @"location",
-                                     nil];
-    [delegate setValue:editedSelection forKey:@"editedSelection"];
-    [delegate setValue:currentLoc forKey:@"myLoc"];
+    if ([selection objectForKey:@"indexPath"] != nil) {
+        NSIndexPath *indexPath = [selection objectForKey:@"indexPath"];
+        NSDictionary *editedSelection = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         indexPath, @"indexPath",
+                                         currentLoc, @"location",
+                                         nil];
+        [delegate setValue:editedSelection forKey:@"editedSelection"];
+        [delegate setValue:currentLoc forKey:@"myLoc"];
+    }
+    else {
+        NSDictionary *editedSelection = [NSDictionary dictionaryWithObjectsAndKeys:currentLoc, @"location", nil];
+        [delegate setValue:editedSelection forKey:@"editedSelection"];
+        [delegate setValue:currentLoc forKey:@"myLoc"];
+    }
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -145,11 +158,63 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
+
+- (void)zxingControllerDidCancel:(ZXingWidgetController*)controller {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)zxingController:(ZXingWidgetController*)controller didScanResult:(NSString *)result {
     
-    ImageViewController *destination = segue.destinationViewController;
-    destination.title = currentLoc.name;
-    [destination setValue:currentLoc.image forKey:@"image"];
+    NSString *scanned = result;
+    Location *loc;
+    if ([allLoc valueForKey:scanned] != nil) {
+        loc = [allLoc valueForKey:scanned];
+        
+        [self dismissModalViewControllerAnimated:YES];
+        [self performSegueWithIdentifier:@"scanLoc" sender:loc];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh oh!"
+                                                        message:[NSString stringWithFormat:@"This is not a valid Vanderbilt QR code. Please try again."]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { 
+    if (sender == scan) {
+        ZXingWidgetController *destination = segue.destinationViewController;
+        destination = [destination initWithDelegate:self showCancel:YES OneDMode:NO];
+        QRCodeReader* qrcodeReader = [[QRCodeReader alloc] init];
+        NSSet *readers = [[NSSet alloc ] initWithObjects:qrcodeReader,nil];
+        destination.readers = readers;
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        destination.soundToPlay =
+        [NSURL fileURLWithPath:[mainBundle pathForResource:@"beep-beep" ofType:@"aiff"] isDirectory:NO];
+    }
+    else if ([segue.identifier isEqual:@"scanLoc"]) {
+        LocationDetailController *destination = segue.destinationViewController;
+        Location *loc = sender;
+        NSDictionary *mySelection;
+        
+        mySelection = [NSDictionary dictionaryWithObjectsAndKeys:
+                     loc, @"location",
+                     nil];
+        
+        [destination setValue:mySelection forKey:@"selection"];
+        
+        [destination setValue:allLoc forKey:@"allLoc"];
+        
+        destination.title = loc.name;
+    }
+    else {
+        ImageViewController *destination = segue.destinationViewController;
+        destination.title = currentLoc.name;
+        [destination setValue:currentLoc.image forKey:@"image"];
+    }
     
 }
 

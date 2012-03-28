@@ -14,8 +14,6 @@
 @synthesize display;
 
 - (void)viewDidLoad {
-    display.image = [UIImage imageWithContentsOfFile:@"/Users/Scott/Documents/School/Vanderbilt/Sophomore/2nd Semester/HCI/Mobile-Tour-Guide/MobileTourGuide/MobileTourGuide/Fall-Day-300x300.png"];
-    
     NSData *imgUrl = [NSData dataWithContentsOfURL:[NSURL URLWithString:image]];
     display.image = [UIImage imageWithData:imgUrl];
 }
