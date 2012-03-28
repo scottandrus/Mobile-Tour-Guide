@@ -9,8 +9,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Location.h"
+#import "ZXingWidgetController.h"
 
-@interface PlacesViewController : UITableViewController
+@interface PlacesViewController : UITableViewController<ZXingDelegate>
 
 @property (strong, nonatomic) NSMutableArray *locations;
 @property (strong, nonatomic) NSMutableArray *selection;
@@ -19,6 +20,15 @@
 @property (strong, nonatomic) NSMutableArray *agenda;
 @property (strong, nonatomic) NSString *name;
 @property BOOL isSectioned;
+@property (strong, nonatomic) NSDictionary *allLoc;
+
+@property (strong, nonatomic) NSString *imgURL;
+@property (strong, nonatomic) NSString *info;
+
+@property (weak, nonatomic) IBOutlet UIButton *image;
 @property (weak, nonatomic) IBOutlet UITextView *description;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *scan;
+@property (weak, nonatomic) IBOutlet UIButton *bulkAdd;
 
 @end

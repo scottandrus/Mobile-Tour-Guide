@@ -177,11 +177,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
          landmarkName = "@implementation AgendaViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -191,11 +191,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "187"
-         endingLineNumber = "187"
+         startingLineNumber = "179"
+         endingLineNumber = "179"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -205,11 +205,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "@implementation AgendaViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354572681.349511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -233,11 +233,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -247,11 +247,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "177"
-         endingLineNumber = "177"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
          landmarkName = "-zxingController:didScanResult:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -261,11 +261,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/AgendaViewController.mm"
-         timestampString = "354082772.917615"
+         timestampString = "354573295.332796"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-zxingController:didScanResult:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -275,11 +275,67 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "MobileTourGuide/LocationDetailController.m"
-         timestampString = "354081338.908379"
+         timestampString = "354301511.242573"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-addAgenda:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MobileTourGuide/PlacesViewController.mm"
+         timestampString = "354568227.522891"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MobileTourGuide/PlacesViewController.mm"
+         timestampString = "354568227.522891"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MobileTourGuide/PlacesViewController.mm"
+         timestampString = "354568227.522891"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
+         landmarkName = "-zxingController:didScanResult:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "MobileTourGuide/LocationDetailController.mm"
+         timestampString = "354573438.756521"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "-addAgenda:"
          landmarkType = "5">
       </FileBreakpoint>
